@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package Integrator;
+option go_package="adapter/output/protos/integrator";
+import "google/protobuf/any.proto";
+
+message IntegratorRequest {
+  int64 product_id = 3;
+}
+
+message IntegratorResponse {
+  enum Status {
+    APPROVED = 0;
+    SKIPPED = 1;
+    DECLINED = 2;
+  }
+
+  string name = 1;
+  Status status = 2;
+  string reason = 3;
+  string custom_code = 4;
+  map<string, google.protobuf.Any> metadata = 5;
+}
+
+service AuthorizeTransaction {
+  rpc Authorize(IntegratorRequest) returns (IntegratorResponse) {};
+}
