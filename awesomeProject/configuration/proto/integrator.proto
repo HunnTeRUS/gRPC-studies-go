@@ -13,6 +13,7 @@ message IntegratorResponse {
     APPROVED = 0;
     SKIPPED = 1;
     DECLINED = 2;
+    REFERRED = 3;
   }
 
   string name = 1;

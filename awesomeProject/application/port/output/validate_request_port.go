@@ -1,12 +1,12 @@
 package output
 
 import (
-	"awesomeProject/adapter/output/protos/integrator"
+	"awesomeProject/application/domain"
 	"context"
 )
 
 type ValidateRequest interface {
 	ValidateRequestPort(
 		context.Context,
-		*integrator.IntegratorRequest) (*integrator.IntegratorResponse, error)
+		domain.IntegrateAuthorizationDomain) (map[string]*domain.ModuleValidation, error)
 }

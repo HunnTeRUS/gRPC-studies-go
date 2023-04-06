@@ -3,6 +3,7 @@ package grpc_client
 import (
 	grpc_client_service "awesomeProject/adapter/output/grpc_client_service"
 	"awesomeProject/adapter/output/protos/integrator"
+	"awesomeProject/application/domain"
 	"context"
 )
 
@@ -15,6 +16,6 @@ func _() grpc_client_service.ValidateRequest {
 
 func (ac *antifraudClient) DoAuthorize(
 	ctx context.Context,
-	req *integrator.IntegratorRequest) (*integrator.IntegratorResponse, error) {
+	req domain.IntegrateAuthorizationDomain) (*integrator.IntegratorResponse, error) {
 	return nil, nil
 }
